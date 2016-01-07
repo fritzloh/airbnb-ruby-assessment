@@ -7,14 +7,19 @@
 
 
     <p class="property">
-    <%if p.user_id != current_user%>
+    <%if p.user_id == current_user.id%>
     <h3><%= p.property_name %><br></h3>
     <%= p.property_address%><br>
     <%= p.property_description%><br>
     RM<%= p.property_rent_price%></p>
+
+    <%user = User.find_by_id(p.user_id)%>
+   BY <%=user.username%>
+    
+    
     
 <div class="forms">	
-<form action="/properties/<%= p.id %>" method="post">
+<form action="/properties/<%=p.id%>" method="post">
 	<input type="hidden" name="_method" value="patch">
 	<textarea class="editbox" name="property[property_name]"> <%= p.property_name %></textarea>
 	<textarea class="editbox" name="property[property_address]"> <%= p.property_address %></textarea>
@@ -24,7 +29,7 @@
 	</form>
 
   
-	<form action="/properties/<%= p.id %>" method="post" class="form-inline">
+	<form action="/properties/<%=p.id%>" method="post" class="form-inline">
 	<input type="hidden" name="_method" value="delete">
 	<button type="submit" class="btn_logout btn-warning btn-lg_logout">DELETE!</button> Delete question? <b>(Warning: This action is unreversible!)</b>
 	</form>
@@ -32,34 +37,38 @@
 
 </div>
 
+<%end%>
+
 <h1> Get Your Property Listed </h1>
 	<form class ="form-inline" method=post action=/properties/create>
 		<input class="form-control" type=text placeholder="Property Name" name="property[property_name]"><br>
 		<input class="form-control" type=text placeholder="Property Address" name="property[property_address]"><br>
 		<input class="form-control" type=text placeholder="Property Description" name="property[property_description]"><br>
-		<input class ="form-control" type=password placeholder="Rent Price (RM)" name="property[property_rent_price]"></br>
+		<input class ="form-control" type=text placeholder="Rent Price (RM)" name="property[property_rent_price]"></br>
 		<button type="submit" class="btn btn-warning btn-lg">Host Now!</button>
 	</form>
 
 
-<%if p.user_id != current_user%>
+
+
 <h1> Your Bookings </h1>
+
     <% @bookings = Booking.new %>
 	<% @bookings = Booking.all.order('id DESC') %>
 	<% @bookings.each do |b| %>
 
+    
+    <%properties = Property.find_by_id(b.property_id)%>
+    <%=properties.property_name %> 
 
 
     <p class="property">
-    <%if b.user_id != current_user%>
+    <%if b.user_id == current_user.id%>
     <%= b.check_in %><br>
     <%= b.check_out%><br>
     <%= b.note%><br></p>
+    <%user = User.find_by_id(b.user_id)%>
+    BY <%=user.username%>
 
 <%end%>
 <%end%>
-<%end%>
-<%end%>
-
-
-

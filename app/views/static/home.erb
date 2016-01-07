@@ -11,6 +11,9 @@
     <%= p.property_description%><br>
     RM<%= p.property_rent_price%></p>
 
+    <%user = User.find_by_id(p.user_id)%>
+   BY <%=user.username%>
+
     
     <% if p.comments %>
 	<% @comments = p.comments %>
@@ -27,19 +30,19 @@
 	<button type="submit" class="btn_logout btn-warning btn-lg_logout">Submit</button>
 	</form>
 
-
+    <%if p.user_id != current_user.id%>
 	<form class="form-inline" action="/bookings/create" method="post">
 	<input class="form-control_2" type="text" name="bookings[check_in]" placeholder="Check In Date">
 	<input class="form-control_2" type="text" name="bookings[check_out]" placeholder="Check Out Date">
 	<input class="form-control_2" type="text" name="bookings[note]" placeholder="Special Note">
 	<input type="hidden" value= 1 name="bookings[booking]">
-	<input type="hidden" value="<%=p.id%>" name="comments[property_id]">
+	<input type="hidden" value=<%=p.id%> name="bookings[property_id]">
 	<button type="submit" class="btn_logout btn-warning btn-lg_logout">Book Now</button>
 	</form>
 
 
 <%end%>
-	
+	<%end%>
 	<%end%>
 	
     

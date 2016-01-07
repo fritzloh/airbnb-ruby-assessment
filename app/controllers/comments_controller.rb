@@ -1,6 +1,6 @@
 post '/comments/create' do
 
-	if current_user
+	if logged_in?
 		@comment = current_user.comments.create(comment: params[:comments][:comment], property_id: params[:comments][:property_id])
 	
 		erb :"static/index"
@@ -9,7 +9,7 @@ end
 
 
 get '/comments' do
-	if current_user
+	if logged_in?
 		@comment = Comment.all
 
 		redirect to '/static/home'
@@ -19,7 +19,7 @@ end
 
 
 patch '/comments/:comment_id' do
-	comment = Comment.find(params[:id])
+	comment = Comment.find(params[:comment_id])
 	comment.update(params[:property])
 	
 	redirect to "/"
@@ -28,7 +28,7 @@ end
 
 
 delete '/comments/:comment_id' do
-	comment = Comment.find(params[:id])
+	comment = Comment.find(params[:comment_id])
 
 	if comment.nil?
 		

@@ -1,6 +1,6 @@
 post '/properties/create' do
-
-	if current_user
+byebug
+	if logged_in?
 		@property = current_user.properties.create(params[:property])
 	
 		erb :"static/user_page"
@@ -10,7 +10,7 @@ end
 
 
 get '/properties' do
-	if current_user
+	if logged_in?
 		@properties = Property.all
 		erb :'static/user_page.erb'
 	end
@@ -20,23 +20,23 @@ end
 
 
 patch '/properties/:property_id' do
-	property = Property.find(params[:id])
+	property = Property.find(params[:property_id])
 	property.update(params[:property])
 	
-	redirect to "/"
+	erb :"/static/user_page"
 end
 
 
 
 delete '/properties/:property_id' do
-	property = Property.find(params[:id])
+	property = Property.find(params[:property_id])
 
 	if property.nil?
 		
-		redirect to "/"
+	erb :"/static/user_page"
 	else
 		property.destroy
 		
-		redirect to "/"
+	erb :"/static/user_page"
 	end
 end

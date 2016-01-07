@@ -1,6 +1,7 @@
 post '/bookings/create' do
+byebug
+	if logged_in?
 
-	if current_user
 		@booking = current_user.bookings.create(params[:bookings])
 	
 		redirect '/'	
@@ -9,7 +10,7 @@ end
 
 
 get '/bookings' do
-	if current_user
+	if logged_in?
 		@booking = Booking.all
 
 		redirect '/'
@@ -20,7 +21,7 @@ end
 
 
 patch '/bookings/:booking_id' do
-	property = Property.find(params[:id])
+	property = Property.find(params[:booking_id])
 	property.update(params[:property])
 	
 	redirect to "/"
@@ -29,7 +30,7 @@ end
 
 
 delete '/bookings/:booking_id' do
-	property = Property.find(params[:id])
+	property = Property.find(params[:booking_id])
 
 	if property.nil?
 		
