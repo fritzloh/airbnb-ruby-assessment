@@ -1,8 +1,49 @@
-<html>
-	<head>
-		<title>Sinatra Framework</title>
-	</head>
-	<body>
-		<%= yield %>
-	</body>
-</html>
+<!DOCTYPE HTML>
+
+<head>
+<link rel="stylesheet" type="text/css" href="/css/application.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/js/application.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+</head>
+
+
+<header class="header-background">
+
+<div class="flex">
+
+
+	<div class="nav-logo">
+	<% if session[:user_id] != nil %>
+	<a href="/">
+	<img src="/img/logo.svg" href="/"></img>
+	</a>
+	<% end%>
+	</div>
+	
+	
+
+	<div class="nav-user">
+	<% if session[:user_id] != nil %>
+	<form action="/session/destroy" method="post">
+	<button class="btn_logout btn-warning btn-lg_logout">Log Out</button>
+	</form>
+	
+	<form action="/users/<%=current_user.id%>" method="get">
+	<button class="btn_logout btn-warning btn-lg_logout">User Page</button>
+	</form>
+
+	</div>
+<% end %>
+
+</div>
+
+
+</header>
+
+<body>
+
+<%=yield%>
+</body>

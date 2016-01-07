@@ -1,0 +1,248 @@
+body {
+	background-color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: #555;
+}
+
+body h2 {
+  color: #ffffff;
+}
+
+
+.index-authen{
+  margin-top: 80px;
+  margin-left: 550px;
+}
+
+
+.header-background{
+	background-image: url("https://assets.entrepreneur.com/content/16x9/822/20150720231627-air-bnb.jpeg");
+    background-size: 100%;
+    height: 500px;
+    width: 100%;
+}
+
+
+.nav-logo{
+	margin-top: 20px;
+	margin-left:50px;
+}
+
+.nav-logo img{
+	width: 100px;
+	height: 50px;
+}
+
+
+.nav-user{
+	margin-top: 20px;
+	margin-right: 50px;
+}
+
+
+.flex{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.brand {
+    
+    margin-left: 400px;
+    margin-top: 100px;
+}
+
+.logo {
+	width: 400px;
+	height: 150px;
+}
+
+
+.signup {
+	float: left;
+	margin-left: 460px;
+
+}
+
+.login {
+  float:right;
+	
+ 
+}
+
+.form-control {
+    height: 38px;
+    font-size: 18px;
+    width: 280px;
+}
+
+.form-control_2 {
+    height: 31px;
+    font-size: 16px;
+    width: 350px;
+}
+
+.form-inline .form-control {
+    display: inline-block;
+  }
+
+  .form-inline .form-control_2 {
+    display: inline-block;
+  }
+
+.btn-lg {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-top: 0px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.btn-lg_logout {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+
+.btn_logout {
+  /*display: inline-block;*/
+  padding: 8px 12px;
+  margin-top: 0px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+
+
+.btn-warning {
+  color: #ffffff;
+  background-color: #DB4251;
+  border-color: #eea236;
+}
+
+
+
+#mask {
+    display: none;
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: 999;
+}
+
+/* You can customize to your needs  */
+.login-popup {
+    display: none;
+    background: #333;
+    padding: 10px;
+    border: 2px solid #ddd;
+    float: left;
+    font-size: 1.2em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 99999;
+    box-shadow: 0px 0px 20px #999;
+    /* CSS3 */
+        -moz-box-shadow: 0px 0px 20px #999;
+    /* Firefox */
+        -webkit-box-shadow: 0px 0px 20px #999;
+    /* Safari, Chrome */
+  border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px;
+    /* Firefox */
+        -webkit-border-radius: 3px;
+    /* Safari, Chrome */;
+}
+
+img.btn_close {
+    Position the close button
+  float: right;
+    margin: -28px -28px 0 0;
+}
+
+fieldset {
+    border: none;
+}
+
+form.signin .textbox label {
+    display: block;
+    padding-bottom: 7px;
+}
+
+form.signin .textbox span {
+    display: block;
+}
+
+form.signin p, form.signin span {
+    color: #999;
+    font-size: 11px;
+    line-height: 18px;
+}
+
+form.signin .textbox input {
+    background: #666666;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #000;
+    border-right: 1px solid #333;
+    border-top: 1px solid #000;
+    color: #fff;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    font: 13px Arial, Helvetica, sans-serif;
+    padding: 6px 6px 4px;
+    width: 200px;
+}
+
+form.signin input:-moz-placeholder {
+    color: #bbb;
+    text-shadow: 0 0 2px #000;
+}
+
+form.signin input::-webkit-input-placeholder {
+    color: #bbb;
+    text-shadow: 0 0 2px #000;
+}
+
+.login-window{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.forms {
+	vertical-align: bottom;
+}

@@ -1,0 +1,65 @@
+<h1> Welcome <%=current_user.username%> </h1>
+
+<h1> Your Listed Properties </h1>
+	<% @properties = Property.all.order('id DESC') %>
+	<% @properties.each do |p| %>
+
+
+
+    <p class="property">
+    <%if p.user_id != current_user%>
+    <h3><%= p.property_name %><br></h3>
+    <%= p.property_address%><br>
+    <%= p.property_description%><br>
+    RM<%= p.property_rent_price%></p>
+    
+<div class="forms">	
+<form action="/properties/<%= p.id %>" method="post">
+	<input type="hidden" name="_method" value="patch">
+	<textarea class="editbox" name="property[property_name]"> <%= p.property_name %></textarea>
+	<textarea class="editbox" name="property[property_address]"> <%= p.property_address %></textarea>
+	<textarea class="editbox" name="property[property_description]"> <%= p.property_description %></textarea>
+	<textarea class="editbox" name="property[property_rent_price]"> <%= p.property_rent_price %></textarea>
+	<button type="submit" class="btn_logout btn-warning btn-lg_logout">Update</button>
+	</form>
+
+  
+	<form action="/properties/<%= p.id %>" method="post" class="form-inline">
+	<input type="hidden" name="_method" value="delete">
+	<button type="submit" class="btn_logout btn-warning btn-lg_logout">DELETE!</button> Delete question? <b>(Warning: This action is unreversible!)</b>
+	</form>
+<%end%>
+
+</div>
+
+<h1> Get Your Property Listed </h1>
+	<form class ="form-inline" method=post action=/properties/create>
+		<input class="form-control" type=text placeholder="Property Name" name="property[property_name]"><br>
+		<input class="form-control" type=text placeholder="Property Address" name="property[property_address]"><br>
+		<input class="form-control" type=text placeholder="Property Description" name="property[property_description]"><br>
+		<input class ="form-control" type=password placeholder="Rent Price (RM)" name="property[property_rent_price]"></br>
+		<button type="submit" class="btn btn-warning btn-lg">Host Now!</button>
+	</form>
+
+
+<%if p.user_id != current_user%>
+<h1> Your Bookings </h1>
+    <% @bookings = Booking.new %>
+	<% @bookings = Booking.all.order('id DESC') %>
+	<% @bookings.each do |b| %>
+
+
+
+    <p class="property">
+    <%if b.user_id != current_user%>
+    <%= b.check_in %><br>
+    <%= b.check_out%><br>
+    <%= b.note%><br></p>
+
+<%end%>
+<%end%>
+<%end%>
+<%end%>
+
+
+

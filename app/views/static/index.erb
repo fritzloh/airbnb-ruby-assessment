@@ -1,2 +1,35 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+
+<div class="brand">
+	<a href="/">
+	<img class ="logo" src="img/logo.svg" href="/"></img>
+	</a>
+</div>
+
+<div class="index-authen">
+	<button type="submit" class="btn btn-warning btn-lg"><a href="#login-box" class="login-window">Sign Up or Log In</a></button>
+</div>
+
+
+
+<div id="login-box" class="login-popup">
+	<a href="#" class="close"><img src="img/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+	<h2> Sign Up </h2>
+	<form class ="form-inline" method=post action=/users>
+	<input class="form-control" type=text placeholder="Username" name="user[username]"><br>
+	<input class="form-control" type=text placeholder="Email" name="user[email]"><br>
+	<input class ="form-control" type=password placeholder="Password" name="user[password]"></br>
+	<button type="submit" class="btn btn-warning btn-lg">Sign Up</button>
+	</form>
+
+<h2> OR </h2>
+
+	<h2> Login Now!</h2>
+	<form class="form-inline" method=post action=/session/create>
+	<input class="form-control" type=text placeholder="Email" name="user[email]"><br>
+	<input class ="form-control" type=password placeholder="Password" name="user[password]"></br>
+	<button type="submit" class="btn btn-warning btn-lg">Log In</button>
+	</form>
+
+</div>
+
+
