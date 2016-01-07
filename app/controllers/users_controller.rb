@@ -10,6 +10,6 @@ end
 
 
 get '/users/:user_id' do
-
+	
 	erb :"static/user_page"
 end

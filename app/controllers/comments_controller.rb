@@ -3,7 +3,7 @@ post '/comments/create' do
 	if logged_in?
 		@comment = current_user.comments.create(comment: params[:comments][:comment], property_id: params[:comments][:property_id])
 	
-		erb :"static/index"
+		erb :"static/home"
 	end
 end
 

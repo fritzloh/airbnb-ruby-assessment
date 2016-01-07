@@ -59,9 +59,10 @@
 
     
     <%properties = Property.find_by_id(b.property_id)%>
-    <%=properties.property_name %> 
 
+    <%=properties.property_name%> 
 
+  
     <p class="property">
     <%if b.user_id == current_user.id%>
     <%= b.check_in %><br>

@@ -1,5 +1,5 @@
 post '/properties/create' do
-byebug
+
 	if logged_in?
 		@property = current_user.properties.create(params[:property])
 	

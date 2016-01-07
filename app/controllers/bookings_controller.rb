@@ -1,5 +1,5 @@
 post '/bookings/create' do
-byebug
+
 	if logged_in?
 
 		@booking = current_user.bookings.create(params[:bookings])
@@ -10,6 +10,7 @@ end
 
 
 get '/bookings' do
+	
 	if logged_in?
 		@booking = Booking.all
 
